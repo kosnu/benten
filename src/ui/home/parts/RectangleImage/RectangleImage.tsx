@@ -4,16 +4,14 @@ interface RectangleImageProps {
   backgroundColor: string
   width: number
   height: number
-  fontTopPartColor: string
-  fontLowPartColor: string
+  fontColor: string
 }
 
 export function RectangleImage({
   backgroundColor,
   width,
   height,
-  fontTopPartColor,
-  fontLowPartColor,
+  fontColor,
 }: RectangleImageProps) {
   return (
     <>
@@ -28,17 +26,7 @@ export function RectangleImage({
           alignItems: "center",
         }}
       >
-        <style jsx>{`
-          p {
-            background: -webkit-linear-gradient(
-              #${fontTopPartColor},
-              #${fontLowPartColor}
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-          }
-        `}</style>
-        <p>{`${width}x${height}`}</p>
+        <p style={{ color: fontColor }}>{`${width}x${height}`}</p>
       </div>
     </>
   )

@@ -1,13 +1,16 @@
 import html2canvas from "html2canvas"
 import React, { useCallback } from "react"
+import { FontColorInput } from "../FontColorInput"
 import { HeightInput } from "../HeightInput"
 import { WidthInput } from "../WidthInput"
+import { useFontColor } from "./useFontColor"
 import { useHeight } from "./useHeight"
 import { useWidth } from "./useWidth"
 
 export function Config() {
   const { width, changeWidth } = useWidth()
   const { height, changeHeight } = useHeight()
+  const { fontColor, changeFontColor } = useFontColor()
 
   const handleSaveButtonClick = useCallback(async () => {
     const target = document.getElementById("preview-image")
@@ -31,8 +34,10 @@ export function Config() {
       <div>{/* 背景色 */}</div>
       <WidthInput width={width} onWidthChange={changeWidth} />
       <HeightInput height={height} onHeightChange={changeHeight} />
-      <div>{/* 文字上部色 */}</div>
-      <div>{/* 文字下部色 */}</div>
+      <FontColorInput
+        fontColor={fontColor}
+        onFontColorChange={changeFontColor}
+      />
       <div>
         <button>Reset</button>
         <button onClick={handleSaveButtonClick}>Save</button>
