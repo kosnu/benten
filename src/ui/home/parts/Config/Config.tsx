@@ -1,6 +1,14 @@
 import React from "react"
 
-export function Config() {
+interface ConfigProps {
+  onSaveButtonClick: () => void
+}
+
+export function Config({ onSaveButtonClick }: ConfigProps) {
+  function handleSaveButtonClick() {
+    onSaveButtonClick()
+  }
+
   return (
     <>
       <div>{/* 背景色 */}</div>
@@ -10,7 +18,7 @@ export function Config() {
       <div>{/* 文字下部色 */}</div>
       <div>
         <button>Reset</button>
-        <button>Save</button>
+        <button onClick={handleSaveButtonClick}>Save</button>
       </div>
     </>
   )
