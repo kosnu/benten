@@ -1,42 +1,22 @@
-import html2canvas from "html2canvas"
-import React, { useCallback, useState } from "react"
-import { Config } from "../Config"
+import React, { useState } from "react"
 import { RectangleImage } from "../RectangleImage"
+import { usePreview } from "./usePreview"
 
 export function Preview() {
-  const [backgroundColor, setBackgroundColor] = useState<string>("333")
-  const [width, setWidth] = useState<number>(200)
-  const [height, setHeight] = useState<number>(200)
-  const [fontTopPartColor, setFontTopPartColor] = useState<string>("0ff")
-  const [fontLowPartColor, setFontLowPartColor] = useState<string>("f00")
-
-  const handleSaveImage = useCallback(async () => {
-    const target = document.getElementById("preview-image")
-    if (!target) return
-
-    const canvas = await html2canvas(target)
-
-    const data = canvas.toDataURL("image/png")
-    const link = document.createElement("a")
-
-    link.href = data
-    link.download = `${width}x${height}.png`
-
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-  }, [width, height])
+  const { preview } = usePreview()
+  const [backgroundColor] = useState<string>("333")
+  const [fontTopPartColor] = useState<string>("0ff")
+  const [fontLowPartColor] = useState<string>("f00")
 
   return (
     <>
       <RectangleImage
         backgroundColor={backgroundColor}
-        width={width}
-        height={height}
+        width={preview.width}
+        height={preview.height}
         fontTopPartColor={fontTopPartColor}
         fontLowPartColor={fontLowPartColor}
       />
-      <Config onSaveButtonClick={handleSaveImage} />
     </>
   )
 }
