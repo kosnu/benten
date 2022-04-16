@@ -18,7 +18,7 @@ export function RectangleImage({
       <div
         id={"preview-image"}
         style={{
-          backgroundColor: `#${backgroundColor}`,
+          backgroundColor: backgroundColor,
           width: width,
           height: height,
           display: "flex",
