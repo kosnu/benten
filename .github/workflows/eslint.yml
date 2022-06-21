@@ -1,0 +1,25 @@
+name: ESLint Frontend
+
+on:
+  pull_request:
+    types: [ opened, synchronize ]
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.15.1
+      - name: Install dependencies
+        run: yarn install
+      - name: ESLint
+        uses: reviewdog/action-eslint@v1
+        with:
+          workdir: './'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+          eslint_flags: './**/*.{ts,tsx}'
+      - name: yarn lint
+        run: yarn lint
