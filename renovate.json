@@ -1,5 +1,12 @@
 {
   "extends": [
     "config:base"
+  ],
+  "timezone": "Asia/Tokyo",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
+    }
   ]
 }
