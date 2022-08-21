@@ -10,11 +10,14 @@
     "format": "prettier --write '{**/*,*}.{js,ts,jsx,tsx}'"
   },
   "dependencies": {
+    "@hookform/resolvers": "2.9.7",
     "html2canvas": "1.4.1",
     "jotai": "1.8.0",
     "next": "12.2.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hook-form": "7.34.2",
+    "zod": "3.18.0"
   },
   "devDependencies": {
     "@types/node": "17.0.23",
