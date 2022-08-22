@@ -1,52 +1,52 @@
+import { zodResolver } from "@hookform/resolvers/zod"
 import html2canvas from "html2canvas"
 import React, { useCallback } from "react"
-import { BackgroundColorInput } from "../BackgroundColorInput"
-import { FontColorInput } from "../FontColorInput"
-import { HeightInput } from "../HeightInput"
-import { WidthInput } from "../WidthInput"
-import { useBackgroundColor } from "./useBackgroundColor"
-import { useFontColor } from "./useFontColor"
-import { useHeight } from "./useHeight"
-import { useWidth } from "./useWidth"
+import { SubmitHandler, useForm } from "react-hook-form"
+import { ConfigForm, configFormSchema } from "../../validation"
 
 export function Config() {
-  const { width, changeWidth } = useWidth()
-  const { height, changeHeight } = useHeight()
-  const { fontColor, changeFontColor } = useFontColor()
-  const { backgroundColor, changeBackgroundColor } = useBackgroundColor()
+  const { register, handleSubmit, reset } = useForm<ConfigForm>({
+    defaultValues: {
+      width: 200,
+      height: 200,
+      fontColor: "#ffffff",
+      backgroundColor: "#000000",
+    },
+    resolver: zodResolver(configFormSchema),
+  })
 
-  const handleSaveButtonClick = useCallback(async () => {
+  const handleResetButtonClick = useCallback(() => {
+    reset()
+  }, [reset])
+
+  const onSubmit: SubmitHandler<ConfigForm> = useCallback(async (data) => {
     const target = document.getElementById("preview-image")
     if (!target) return
 
     const canvas = await html2canvas(target)
 
-    const data = canvas.toDataURL("image/png")
+    const image = canvas.toDataURL("image/png")
     const link = document.createElement("a")
 
-    link.href = data
-    link.download = `${width}x${height}.png`
+    link.href = image
+    link.download = `${data.width}x${data.height}.png`
 
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
-  }, [width, height])
+  }, [])
 
   return (
     <>
-      <BackgroundColorInput
-        backgroundColor={backgroundColor}
-        onBackgroundColorChange={changeBackgroundColor}
-      />
-      <WidthInput width={width} onWidthChange={changeWidth} />
-      <HeightInput height={height} onHeightChange={changeHeight} />
-      <FontColorInput
-        fontColor={fontColor}
-        onFontColorChange={changeFontColor}
-      />
       <div>
-        <button>Reset</button>
-        <button onClick={handleSaveButtonClick}>Save</button>
+        <input {...register("backgroundColor")} type={"color"} />
+        <input {...register("width")} type={"number"} />
+        <input {...register("height")} type={"number"} />
+        <input {...register("fontColor")} type={"color"} />
+        <div>
+          <button onClick={handleResetButtonClick}>Reset</button>
+          <button onClick={handleSubmit(onSubmit)}>Save</button>
+        </div>
       </div>
     </>
   )
