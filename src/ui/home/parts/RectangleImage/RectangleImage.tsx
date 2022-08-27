@@ -19,14 +19,21 @@ export function RectangleImage({
         id={"preview-image"}
         style={{
           backgroundColor: backgroundColor,
-          width: width,
-          height: height,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          width: `${width}px`,
+          height: `${height}px`,
         }}
       >
-        <p style={{ color: fontColor }}>{`${width}x${height}`}</p>
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <p style={{ color: fontColor }}>{`${width}x${height}`}</p>
+        </div>
       </div>
     </>
   )

@@ -1,52 +1,43 @@
-import html2canvas from "html2canvas"
 import React, { useCallback } from "react"
-import { BackgroundColorInput } from "../BackgroundColorInput"
-import { FontColorInput } from "../FontColorInput"
-import { HeightInput } from "../HeightInput"
-import { WidthInput } from "../WidthInput"
-import { useBackgroundColor } from "./useBackgroundColor"
-import { useFontColor } from "./useFontColor"
-import { useHeight } from "./useHeight"
-import { useWidth } from "./useWidth"
+import { UseFormRegister } from "react-hook-form"
+import { ConfigForm } from "../../validation"
 
-export function Config() {
-  const { width, changeWidth } = useWidth()
-  const { height, changeHeight } = useHeight()
-  const { fontColor, changeFontColor } = useFontColor()
-  const { backgroundColor, changeBackgroundColor } = useBackgroundColor()
+interface ConfigProps {
+  register: UseFormRegister<ConfigForm>
+  onResetButtonClick: () => void
+  onSaveButtonClick: () => void
+}
 
-  const handleSaveButtonClick = useCallback(async () => {
-    const target = document.getElementById("preview-image")
-    if (!target) return
+export function Config({
+  register,
+  onResetButtonClick,
+  onSaveButtonClick,
+}: ConfigProps) {
+  const handleResetButtonClick = useCallback(() => {
+    onResetButtonClick()
+  }, [onResetButtonClick])
 
-    const canvas = await html2canvas(target)
-
-    const data = canvas.toDataURL("image/png")
-    const link = document.createElement("a")
-
-    link.href = data
-    link.download = `${width}x${height}.png`
-
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-  }, [width, height])
+  const handleSaveButtonClick = useCallback(() => {
+    onSaveButtonClick()
+  }, [onSaveButtonClick])
 
   return (
     <>
-      <BackgroundColorInput
-        backgroundColor={backgroundColor}
-        onBackgroundColorChange={changeBackgroundColor}
-      />
-      <WidthInput width={width} onWidthChange={changeWidth} />
-      <HeightInput height={height} onHeightChange={changeHeight} />
-      <FontColorInput
-        fontColor={fontColor}
-        onFontColorChange={changeFontColor}
-      />
       <div>
-        <button>Reset</button>
-        <button onClick={handleSaveButtonClick}>Save</button>
+        <input {...register("backgroundColor")} type={"color"} />
+        <input
+          {...register("width", { valueAsNumber: true })}
+          type={"number"}
+        />
+        <input
+          {...register("height", { valueAsNumber: true })}
+          type={"number"}
+        />
+        <input {...register("fontColor")} type={"color"} />
+        <div>
+          <button onClick={handleResetButtonClick}>Reset</button>
+          <button onClick={handleSaveButtonClick}>Save</button>
+        </div>
       </div>
     </>
   )
