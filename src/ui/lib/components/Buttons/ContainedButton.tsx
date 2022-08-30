@@ -19,7 +19,7 @@ export function ContainedButton({
         {...props}
         className={`${sized(
           size,
-        )} rounded-md bg-black text-center text-sm font-normal text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-400 ${
+        )} rounded-md bg-black text-center text-sm font-normal text-white hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-400 ${
           props.className
         }`}
       >
