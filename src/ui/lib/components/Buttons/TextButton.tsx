@@ -8,20 +8,13 @@ interface ButtonProps
   size: "s" | "m" | "l"
 }
 
-export function ContainedButton({
-  children,
-  size = "m",
-  ...props
-}: ButtonProps) {
+export function TextButton({ children, size = "m", ...props }: ButtonProps) {
   return (
     <>
       <button
         {...props}
-        className={`${sized(
-          size,
-        )} rounded-md bg-black text-center text-sm font-normal text-white hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-400 ${
-          props.className
-        }`}
+        className={`rounded-md text-center text-sm font-normal text-black hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-gray-400
+         ${sized(size)} ${props.className}`}
       >
         {children}
       </button>
