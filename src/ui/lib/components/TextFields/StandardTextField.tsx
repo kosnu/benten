@@ -18,6 +18,7 @@ export function StandardTextField({
   ...props
 }: StandardTextFieldProps) {
   const inputId = useId()
+
   return (
     <>
       <div {...props} className={"px-1 py-3"}>
