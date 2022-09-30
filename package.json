@@ -46,7 +46,7 @@
     "eslint-plugin-storybook": "0.6.4",
     "eslint-plugin-tailwindcss": "3.6.2",
     "eslint-plugin-unused-imports": "2.0.0",
-    "postcss": "8.4.16",
+    "postcss": "8.4.17",
     "postcss-loader": "7.0.1",
     "prettier": "2.7.1",
     "prettier-plugin-tailwindcss": "0.1.13",
