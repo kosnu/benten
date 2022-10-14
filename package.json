@@ -12,7 +12,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@hookform/resolvers": "2.9.8",
+    "@hookform/resolvers": "2.9.9",
     "html2canvas": "1.4.1",
     "jotai": "1.8.5",
     "next": "12.3.1",
