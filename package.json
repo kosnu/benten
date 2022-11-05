@@ -22,7 +22,7 @@
     "zod": "3.19.1"
   },
   "devDependencies": {
-    "@babel/core": "7.19.6",
+    "@babel/core": "7.20.2",
     "@storybook/addon-actions": "6.5.13",
     "@storybook/addon-essentials": "6.5.13",
     "@storybook/addon-interactions": "6.5.13",
@@ -38,7 +38,7 @@
     "@typescript-eslint/eslint-plugin": "5.42.0",
     "@typescript-eslint/parser": "5.42.0",
     "autoprefixer": "10.4.13",
-    "babel-loader": "8.2.5",
+    "babel-loader": "8.3.0",
     "eslint": "8.26.0",
     "eslint-config-next": "12.3.2",
     "eslint-config-prettier": "8.5.0",
