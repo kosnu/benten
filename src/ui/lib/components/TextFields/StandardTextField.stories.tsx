@@ -1,14 +1,17 @@
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { StandardTextField } from "./StandardTextField"
 
-export default {
+const meta: Meta<typeof StandardTextField> = {
   title: "Lib/TextField/StandardTextField",
   component: StandardTextField,
-} as ComponentMeta<typeof StandardTextField>
+}
 
-export const Default: ComponentStoryObj<typeof StandardTextField> = {
+export default meta
+type Story = StoryObj<typeof StandardTextField>
+
+export const Default: Story = {
   args: {
     label: "ラベル",
   },
-  storyName: "Default",
+  name: "Default",
 }

@@ -1,31 +1,34 @@
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { TextButton } from "./TextButton"
 
-export default {
+const meta: Meta<typeof TextButton> = {
   title: "Lib/Buttons/TextButton",
   component: TextButton,
-} as ComponentMeta<typeof TextButton>
+}
 
-export const SSize: ComponentStoryObj<typeof TextButton> = {
+export default meta
+type Story = StoryObj<typeof TextButton>
+
+export const SSize: Story = {
   args: {
     children: "BUTTON",
     size: "s",
   },
-  storyName: "S サイズ",
+  name: "S サイズ",
 }
 
-export const MSize: ComponentStoryObj<typeof TextButton> = {
+export const MSize: Story = {
   args: {
     children: "BUTTON",
     size: "m",
   },
-  storyName: "M サイズ",
+  name: "M サイズ",
 }
 
-export const LSize: ComponentStoryObj<typeof TextButton> = {
+export const LSize: Story = {
   args: {
     children: "BUTTON",
     size: "l",
   },
-  storyName: "L サイズ",
+  name: "L サイズ",
 }
