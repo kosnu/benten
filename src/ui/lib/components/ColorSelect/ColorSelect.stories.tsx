@@ -1,14 +1,17 @@
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { ColorSelect } from "./ColorSelect"
 
-export default {
+const meta: Meta<typeof ColorSelect> = {
   title: "Lib/ColorSelect",
   component: ColorSelect,
-} as ComponentMeta<typeof ColorSelect>
+}
 
-export const Default: ComponentStoryObj<typeof ColorSelect> = {
+export default meta
+type Story = StoryObj<typeof ColorSelect>
+
+export const Default: Story = {
   args: {
     label: "カラーコード",
   },
-  storyName: "Default",
+  name: "Default",
 }

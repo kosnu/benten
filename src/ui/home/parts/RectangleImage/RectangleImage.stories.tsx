@@ -1,17 +1,20 @@
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { RectangleImage } from "./RectangleImage"
 
-export default {
+const meta: Meta<typeof RectangleImage> = {
   title: "Home/RectangleImage",
   component: RectangleImage,
-} as ComponentMeta<typeof RectangleImage>
+}
 
-export const Default: ComponentStoryObj<typeof RectangleImage> = {
+export default meta
+
+type Story = StoryObj<typeof RectangleImage>
+export const Default: Story = {
   args: {
     width: 200,
     height: 200,
     backgroundColor: "#000000",
     fontColor: "#ffffff",
   },
-  storyName: "デフォルト",
+  name: "デフォルト",
 }

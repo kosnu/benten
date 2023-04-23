@@ -1,17 +1,20 @@
 import { action } from "@storybook/addon-actions"
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { Config } from "./Config"
 
-export default {
+const meta: Meta<typeof Config> = {
   title: "Home/Config",
   component: Config,
-} as ComponentMeta<typeof Config>
+}
 
-export const Default: ComponentStoryObj<typeof Config> = {
+export default meta
+type Story = StoryObj<typeof Config>
+
+export const Default: Story = {
   args: {
     // TODO: `register()` を渡すようにする？
     onResetButtonClick: action("reset"),
     onSaveButtonClick: action("save"),
   },
-  storyName: "デフォルト",
+  name: "デフォルト",
 }
