@@ -1806,10 +1806,10 @@
     "@storybook/types" "7.0.7"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-styling@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-styling/-/addon-styling-1.0.2.tgz#71ea3e0b6678733f6830c7cd191332b42c7dc708"
-  integrity sha512-Y9NwwK7u1MPOZsbNVUDX9yY42Hz31v4dHqiOCJ5FIdD64wTCo6eW5phyrNtrphIwiAD7AjYiGx8xE/YwpOmANQ==
+"@storybook/addon-styling@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-styling/-/addon-styling-1.0.3.tgz#aaf31d4a7b8ba1d89590ace5b138b4fe472eaecb"
+  integrity sha512-FGgAWJema61VjIrH08+MYjDJEDlbVnVkufVq3TTCwr7RUJho4XHabRwDWghZE/IfkdWd4T06YNPUOML8q/BNsw==
   dependencies:
     "@storybook/api" "^7.0.2"
     "@storybook/components" "^7.0.2"
