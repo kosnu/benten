@@ -1933,10 +1933,10 @@
     "@storybook/types" "7.0.7"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-styling@1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-styling/-/addon-styling-1.0.5.tgz#2648aea984728cfe5bfe78c68a6f871aec369431"
-  integrity sha512-Vh+kzYJnCZOd5FGAXZ4Z0t+c5UXEkSAI1BN0SGu6ps1579uDkH3byWVq+hTEVo2lh0YgSzjs5rppUIoEVQYAzw==
+"@storybook/addon-styling@1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-styling/-/addon-styling-1.0.6.tgz#c68e727986be080d990a59e35145e04af6bbf3f8"
+  integrity sha512-OHs6Yj04TjyFQ+1NQrMBxf+5tCEMDWGvkztB1XQf0+hNqNDRsoRvDkeXeS462RHCt3ffSYUi5leUvotmDYno6g==
   dependencies:
     "@storybook/api" "^7.0.2"
     "@storybook/components" "^7.0.2"
